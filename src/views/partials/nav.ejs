@@ -1,0 +1,51 @@
+<!-- src/views/partials/nav.ejs -->
+<nav class="bg-gray-800 text-white p-4 fixed w-full z-50">
+  <div class="container mx-auto flex justify-between items-center">
+    <a href="/" class="text-lg font-bold">Unbot</a>
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex items-center space-x-4">
+      <a href="/commands" class="hover:bg-gray-700 px-3 py-2 rounded-md">Commands</a>
+      <a href="/about" class="hover:bg-gray-700 px-3 py-2 rounded-md">About</a>
+      <a href="/status" class="hover:bg-gray-700 px-3 py-2 rounded-md">Status</a>
+      <a href="/api/login/discord" class="hover:bg-gray-700 px-3 py-2 rounded-md">Login with Discord</a>
+      <a href="/more" class="hover:bg-gray-700 px-3 py-2 rounded-md">More</a>
+    </div>
+    <!-- Mobile Menu Button -->
+    <button id="menu-btn" class="md:hidden px-3 py-2" aria-label="Open menu">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+      </svg>
+    </button>
+  </div>
+<!-- moblie menu -->
+<div id="nav-sidebar" class="hidden fixed inset-0 bg-gray-900 bg-opacity-75 z-40">
+  <div id="nav-dropdown" class="hidden fixed right-0 top-0 bg-gray-800 shadow-lg h-full w-1/2 z-50 transform translate-x-full flex flex-col justify-between">
+    <!-- Social Media Icons -->
+    <div class="flex justify-around items-center p-4">
+      <a href="https://twitter.com" target="_blank"><img src="/icons/mobliemenu/github.svg" alt="Twitter" class="h-6 w-6"></a>
+      <a href="https://facebook.com" target="_blank"><img src="/icons/mobliemenu/x.svg" alt="Facebook" class="h-6 w-6"></a>
+      <a href="https://instagram.com" target="_blank"><img src="/icons/mobliemenu/discord.svg" alt="Instagram" class="h-6 w-6"></a>
+    </div>
+    <!-- Navigation Links Centered Vertically and Horizontally -->
+    <div class="flex flex-col flex-grow items-center justify-center space-y-2">
+      <a href="/commands" class="px-4 py-2 text-sm hover:bg-gray-700 text-center">Commands</a>
+      <a href="/about" class="px-4 py-2 text-sm hover:bg-gray-700 text-center">About</a>
+      <a href="/status" class="px-4 py-2 text-sm hover:bg-gray-700 text-center">Status</a>
+      <a href="/login" class="px-4 py-2 text-sm hover:bg-gray-700 text-center">Login</a>
+      <a href="/more" class="px-4 py-2 text-sm hover:bg-gray-700 text-center">More</a>
+    </div>
+    <!-- Footer with Version Information -->
+    <div class="mt-auto px-4 py-2 bg-gray-700 text-sm text-white text-center">
+      © 2024 Unbot. All rights reserved. Version: 1.0.0
+    </div>
+  </div>
+</div>
+
+
+
+
+</nav>
+
+  
+  
+  

@@ -1,0 +1,41 @@
+<!-- partials/dashy/sidebar.ejs -->
+<div class="sidebar bg-gray-800 text-white w-64 min-h-screen py-7 px-2 fixed inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out">
+    <!-- User Info Section -->
+    <div class="user-info px-4">
+      <% if (user && user.username) { %>
+        <div class="flex items-center space-x-4">
+          <% if (user.avatar) { %>
+            <img src="<%= user.avatar %>" alt="User Avatar" class="h-12 w-12 rounded-full">
+          <% } %>
+          <div class="font-semibold">
+            Hello, <%= user.username %>!
+          </div>
+        </div>
+      <% } else { %>
+        <div class="font-semibold">
+          Not logged in
+        </div>
+      <% } %>
+    </div>
+  
+    <!-- Navigation Links -->
+    <nav class="sidebar-nav px-4 mt-6">
+      <ul class="space-y-2">
+        <li>
+          <a href="/main/dashboard" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">
+            Dashboard
+          </a>
+        </li>
+        <li>
+          <a href="/settings" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">
+            Settings
+          </a>
+        </li>
+        <li>
+          <a href="/logout" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">
+            Logout
+          </a>
+        </li>
+      </ul>
+    </nav>
+</div>

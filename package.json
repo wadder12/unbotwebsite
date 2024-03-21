@@ -1,0 +1,27 @@
+{
+  "name": "unbotweb",
+  "module": "index.js",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@auth/core": "^0.28.0",
+    "@supabase/supabase-js": "^2.39.8",
+    "discord-oauth2": "^2.12.1",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.9",
+    "express": "^4.19.1",
+    "express-session": "^1.18.0",
+    "passport": "^0.7.0",
+    "passport-discord": "^0.1.4",
+    "tailwind": "^4.0.0"
+  },
+  "scripts": {
+    "start": "bun src/server.js",
+    "dev": "bun --watch src/server.js"
+  }
+}
