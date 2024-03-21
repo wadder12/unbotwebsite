@@ -1,41 +1,81 @@
-<!-- partials/dashy/sidebar.ejs -->
-<div class="sidebar bg-gray-800 text-white w-64 min-h-screen py-7 px-2 fixed inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out">
-    <!-- User Info Section -->
-    <div class="user-info px-4">
-      <% if (user && user.username) { %>
-        <div class="flex items-center space-x-4">
-          <% if (user.avatar) { %>
-            <img src="<%= user.avatar %>" alt="User Avatar" class="h-12 w-12 rounded-full">
-          <% } %>
-          <div class="font-semibold">
-            Hello, <%= user.username %>!
-          </div>
+<!-- Navbar -->
+<div class="navbar bg-gray-800 text-white w-full h-16 fixed top-0 left-0 flex items-center justify-between px-4">
+    <!-- Logo on the left -->
+    <a href="/main/dashboard" class="logo">
+        <img src="path_to_your_logo.png" alt="Logo" class="h-12">
+    </a>
+
+    <div class="flex items-center space-x-4">
+        <!-- Search Icon -->
+        <a href="/search" class="hover:text-gray-300">
+            <img src="/icons/mobliemenu/search.svg" alt="More" class="h-6">
+        </a>
+
+        <div class="relative">
+            <a href="javascript:void(0)" id="notifications-trigger" class="hover:text-gray-300">
+                <img src="/icons/mobliemenu/update.svg" alt="More" class="h-6">
+                <div class="hidden absolute top-0 right-0 bg-green-500 rounded-full w-3 h-3" id="new-changelog-indicator"></div>
+            </a>
+            <div class="hidden absolute z-10 w-64 mt-2 bg-white rounded-md shadow-lg" id="notifications-dropdown">
+                <div class="p-4">
+                    <p>Loading releases...</p>
+                </div>
+            </div>
         </div>
-      <% } else { %>
-        <div class="font-semibold">
-          Not logged in
+        
+        
+
+        <div class="relative inline-block"> 
+            <a href="/more" class="hover:text-gray-300 block">
+                <img src="/icons/mobliemenu/cells.svg" alt="More" class="h-6">
+            </a>
+        
+            <!-- Dropdown menu -->
+            <div class="hidden overflow-hidden z-50 text-base list-none bg-white rounded divide-y divide-gray-100 shadow-lg dark:bg-gray-700 dark:divide-gray-600 absolute right-0 top-full mt-1 max-w-md" id="apps-dropdown">
+                <div class="block py-2 px-4 text-base font-medium text-center text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        Unbot Apps
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 p-4">
+                        <a href="#" class="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group">
+                        <div class="text-sm font-medium text-gray-900 dark:text-white">Sales</div>
+                    </a>
+                    <a href="#" class="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group">
+                        <div class="text-sm font-medium text-gray-900 dark:text-white">Users</div>
+                    </a>
+                    <a href="#" class="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group">
+                        <div class="text-sm font-medium text-gray-900 dark:text-white">Inbox</div>
+                    </a>
+                    <a href="#" class="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group">
+                        <div class="text-sm font-medium text-gray-900 dark:text-white">Profile</div>
+                    </a>
+                    </div>
+                </div>
         </div>
-      <% } %>
+
+        <!-- User Avatar and Name -->
+        <% if (user && user.username) { %>
+            <div class="flex items-center space-x-2">
+                <% if (user.avatar) { %>
+                    <img src="<%= user.avatar %>" alt="User Avatar" class="h-8 w-8 rounded-full">
+                <% } %>
+                <span class="font-semibold">
+                    <%= user.username %>
+                </span>
+            </div>
+        <% } else { %>
+            <div class="font-semibold">
+                Not logged in
+            </div>
+        <% } %>
     </div>
-  
-    <!-- Navigation Links -->
-    <nav class="sidebar-nav px-4 mt-6">
-      <ul class="space-y-2">
-        <li>
-          <a href="/main/dashboard" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">
-            Dashboard
-          </a>
-        </li>
-        <li>
-          <a href="/settings" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">
-            Settings
-          </a>
-        </li>
-        <li>
-          <a href="/logout" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">
-            Logout
-          </a>
-        </li>
-      </ul>
-    </nav>
 </div>
+
+
+<style>
+    /* do not remove this */
+    #apps-dropdown {
+        width: auto; 
+        min-width: 200px; 
+    }
+</style>
+    

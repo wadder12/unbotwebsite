@@ -11,9 +11,12 @@ const app = express();
 const port = 6559;
 
 app.use(session({
-  secret: process.env.SESSION_SECRET, 
+  secret: process.env.SESSION_SECRET,
   resave: false,
-  saveUninitialized: false,
+  saveUninitialized: true,
+  secure: false, // Set this to true when using HTTPS
+  httpOnly: true, // Prevent client-side scripts from accessing the cookie
+  sameSite: 'strict', 
 }));
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -23,7 +26,7 @@ app.set('views', path.join(__dirname, 'views'));
 // app routes
 app.use('/', main);
 app.use('/api', auth); 
-app.use('/extra', extra);
+app.use('/new', extra);
 
 //start it 
 app.listen(port, '0.0.0.0', () => {

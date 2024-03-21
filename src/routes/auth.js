@@ -1,3 +1,12 @@
+/**
+ * @file auth.js
+ * 
+ * @description this file is for handling auth and other auth things
+ * @other this should be good to go nothing should be added unless store stuff in db instead of memory
+ * @requires express
+ * 
+ * @wroteBy Wade aka @wadder12
+ */
 import { Router } from 'express';
 import DiscordOAuth2 from 'discord-oauth2';
 import dotenv from 'dotenv';
