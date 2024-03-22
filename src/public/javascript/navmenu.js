@@ -22,6 +22,23 @@ $(document).ready(function() {
     });
 });
 
+
+// for the user menu drop
+$(document).ready(function(){
+    $("#userMenuButton").click(function(e) {
+        e.stopPropagation();
+        $("#userDropdown").toggle();
+    });
+
+    $(document).click(function() {
+        $("#userDropdown").hide();
+    });
+
+    $("#userDropdown").click(function(e) {
+        e.stopPropagation();
+    });
+});
+
   
   
   

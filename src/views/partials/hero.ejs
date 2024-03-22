@@ -1,0 +1,75 @@
+<section class="hero bg-cover bg-center h-screen flex flex-col justify-start items-center relative overflow-hidden" style="background-image: url('/images/test1.png');">
+    <nav class="pt-8 px-5 z-10 w-full">
+      <ul class="flex justify-center space-x-4 lg:space-x-6">
+        <li><a href="/api/login/discord" class="text-white hover:text-purple-300 transition duration-300 ease-in-out font-bold">Login</a></li>
+        <li><a href="#commands" class="text-white hover:text-purple-300 transition duration-300 ease-in-out font-bold">Commands</a></li>
+        <li class="relative group">
+            <a href="#more" id="dropdownMore" class="text-white hover:text-purple-300 transition duration-300 ease-in-out font-bold cursor-pointer">More</a>
+            <!-- Dropdown  -->
+            <div class="dropdown-content absolute hidden flex flex-col bg-white text-gray-900 mt-2 rounded-lg shadow-2xl z-50 w-72" id="dropdownContent" style="margin-left: -12rem;">
+                <div class="grid grid-cols-3 gap-2 p-2">
+                    <a href="#privacy" class="flex flex-col items-center justify-center p-2 hover:bg-gray-100 rounded text-lg">
+                        <img src="/icons/hero/lock-closed.svg" alt="" class="mb-2 h-6 w-6"> Privacy
+                    </a>
+                    <a href="#tos" class="flex flex-col items-center justify-center p-2 hover:bg-gray-100 rounded text-lg">
+                        <img src="/icons/hero/scale.svg" alt="" class="mb-2 h-6 w-6"> TOS
+                    </a>
+                    <a href="#status" class="flex flex-col items-center justify-center p-2 hover:bg-gray-100 rounded text-lg">
+                        <img src="/icons/hero/status.svg" alt="" class="mb-2 h-6 w-6"> Status
+                    </a>
+                    <a href="https://app.gitbook.com/o/0Yc9xrdmwFPPjEZej2yZ/s/ZRjFf4uL4dYdpEEuth16/group-1/page-1" class="flex flex-col items-center justify-center p-2 hover:bg-gray-100 rounded text-lg">
+                        <img src="/icons/hero/globe.svg" alt="" class="mb-2 h-6 w-6"> Docs
+                    </a>
+                    <a href="#extra2" class="flex flex-col items-center justify-center p-2 hover:bg-gray-100 rounded text-lg">
+                        <img src="/icons/hero/user-group.svg" alt="" class="mb-2 h-6 w-6"> Support
+                    </a>
+                </div>
+                <div class="bg-gray-100 p-2 rounded-b-lg text-center text-gray-500 text-sm">
+                    <img src="/icons/version.svg" alt="" class="inline-block mb-1 h-6 w-6"> Version 1.0.0
+                </div>
+            </div>
+        </li>
+        
+        
+    </nav>
+
+    <div class="flex flex-col items-start justify-center h-full w-full" style="padding-left: 5%;">
+        <div class="text-left z-10">
+          <h1 class="text-5xl text-white font-bold mb-4 animate-pulse">Unbot</h1>
+          <p class="text-2xl text-gray-300 mb-8 animate-fade-in-down">Unibox Discord Bot(OS)</p>
+          <a href="#" class="bg-purple-600 hover:bg-purple-800 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out animate-bounce">Join the Adventure</a>
+        </div>
+    </div>
+
+    <div class="absolute right-5 top-1/2 transform -translate-y-1/2 z-10">
+        <div class="flex flex-col items-center space-y-4 bg-purple-600 p-4 rounded-lg">
+            <a href="https://facebook.com" class="transition duration-300 ease-in-out transform hover:scale-110">
+                <img src="/icons/mobliemenu/github.svg" alt="GitHub" class="h-6 w-6">
+            </a>
+            <a href="https://twitter.com" class="transition duration-300 ease-in-out transform hover:scale-110">
+                <img src="/icons/mobliemenu/discord.svg" alt="Discord" class="h-6 w-6">
+            </a>
+            <a href="https://instagram.com" class="transition duration-300 ease-in-out transform hover:scale-110">
+                <img src="/icons/mobliemenu/x.svg" alt="X" class="h-6 w-6">
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<script>
+$(document).ready(function(){
+  $("#dropdownMore").click(function(event){
+    event.preventDefault(); 
+    $("#dropdownContent").toggle(); 
+  });
+
+  $(document).on('click', function(event) {
+    if (!$(event.target).closest('#dropdownMore, #dropdownContent').length) {
+      $("#dropdownContent").hide();
+    }
+  });
+});
+
+
+    </script>

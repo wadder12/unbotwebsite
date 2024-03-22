@@ -1,9 +1,10 @@
 <!-- Navbar -->
 <div class="navbar bg-gray-800 text-white w-full h-16 fixed top-0 left-0 flex items-center justify-between px-4">
     <!-- Logo on the left -->
-    <a href="/main/dashboard" class="logo">
-        <img src="path_to_your_logo.png" alt="Logo" class="h-12">
+    <a href="#" class="logo text-3xl font-bold text-white hover:text-gray-600">
+        unbot dashboard
     </a>
+    
 
     <div class="flex items-center space-x-4">
         <!-- Search Icon -->
@@ -37,36 +38,56 @@
                     </div>
                     <div class="grid grid-cols-2 gap-4 p-4">
                         <a href="#" class="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group">
-                        <div class="text-sm font-medium text-gray-900 dark:text-white">Sales</div>
+                        <div class="text-sm font-medium text-gray-900 dark:text-white">Karma</div>
                     </a>
                     <a href="#" class="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group">
-                        <div class="text-sm font-medium text-gray-900 dark:text-white">Users</div>
+                        <div class="text-sm font-medium text-gray-900 dark:text-white">Awards</div>
                     </a>
                     <a href="#" class="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group">
                         <div class="text-sm font-medium text-gray-900 dark:text-white">Inbox</div>
                     </a>
                     <a href="#" class="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group">
-                        <div class="text-sm font-medium text-gray-900 dark:text-white">Profile</div>
+                        <div class="text-sm font-medium text-gray-900 dark:text-white">Setting</div>
                     </a>
                     </div>
                 </div>
         </div>
 
-        <!-- User Avatar and Name -->
+    <!-- User Avatar and Name -->
+    <div class="relative">
         <% if (user && user.username) { %>
-            <div class="flex items-center space-x-2">
+            <div class="cursor-pointer" id="userMenuButton">
                 <% if (user.avatar) { %>
                     <img src="<%= user.avatar %>" alt="User Avatar" class="h-8 w-8 rounded-full">
                 <% } %>
-                <span class="font-semibold">
-                    <%= user.username %>
-                </span>
             </div>
+            <!-- Dropdown Menu -->
+            <div class="hidden absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-lg z-50" id="userDropdown">
+                <!-- Username displayed as a static element -->
+                <div class="block px-4 py-2 text-sm text-gray-700 font-bold bg-gray-100">
+                    <%= user.username %>
+                </div>
+            
+                <!-- Menu Items -->
+                <a href="/discord" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Discord</a>
+                <a href="/status" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Status</a>
+                <a href="/help" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Need Help?</a>
+                <a href="/api/logout" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Logout</a>
+                
+                <!-- Version number -->
+                <div class="px-4 py-2 text-sm text-gray-400">
+                    Version 1.0
+                </div>
+            </div>
+            
         <% } else { %>
             <div class="font-semibold">
                 Not logged in
             </div>
         <% } %>
+    </div>
+    
+
     </div>
 </div>
 
@@ -78,4 +99,5 @@
         min-width: 200px; 
     }
 </style>
-    
+
+

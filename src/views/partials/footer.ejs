@@ -1,0 +1,32 @@
+<footer class="bg-gray-800 text-white text-center p-4 mx-auto w-3/4 rounded-full">
+    <div class="flex justify-around items-center">
+        <div class="logo-name">Your Bot Name</div>
+        <div>
+            <p>&copy; 2024 Your Bot Name. All rights reserved.</p>
+        </div>
+        <div class="quick-links">
+            <a href="#link1" class="underline mx-2">Link 1</a>
+            <a href="#link2" class="underline mx-2">Link 2</a>
+        </div>
+        <div id="statusPing" class="status-ping"></div>
+    </div>
+</footer>
+
+<script>
+$(document).ready(function() {
+    function pingWebsite() {
+        $.ajax({
+            url: "url-to-ping.com", 
+            success: function(response) {
+                $("#statusPing").html('<span class="inline-block p-2 bg-green-500 rounded-full">Online</span>');
+            },
+            error: function() {
+                $("#statusPing").html('<span class="inline-block p-2 bg-red-500 rounded-full">Offline</span>');
+            },
+            timeout: 3000 
+        });
+    }
+    pingWebsite();
+
+});
+</script>

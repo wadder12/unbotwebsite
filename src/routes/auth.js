@@ -62,4 +62,15 @@ auth.get('/auth/discord/callback', async (req, res) => {
   }
 });
 
+auth.get('/logout', (req, res) => {
+  req.session.destroy((err) => {
+    if(err) {
+      console.error('Error during logout:', err);
+      return res.redirect('/dashboard?error=logoutFailed');
+    }
+    // just goes home for now
+    res.redirect('/');
+  });
+});
+
 export default auth;
