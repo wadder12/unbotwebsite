@@ -1,3 +1,5 @@
+// public/javascript/dashnav.js
+
 $(document).ready(function(){
     $('.navbar a[href="/more"]').click(function(e){
         e.preventDefault();

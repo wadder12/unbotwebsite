@@ -41,5 +41,18 @@ $(document).ready(function(){
 
   
   
+// for the more dropdown
+$(document).ready(function(){
+    $("#dropdownMore").click(function(event){
+      event.preventDefault(); 
+      $("#dropdownContent").toggle(); 
+    });
   
+    $(document).on('click', function(event) {
+      if (!$(event.target).closest('#dropdownMore, #dropdownContent').length) {
+        $("#dropdownContent").hide();
+      }
+    });
+  });
   
+    

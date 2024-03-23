@@ -1,4 +1,5 @@
-<section class="hero bg-cover bg-center h-screen flex flex-col justify-start items-center relative overflow-hidden" style="background-image: url('/images/test1.png');">
+<section id="hero" class="hero bg-cover bg-center h-screen flex flex-col justify-start items-center relative overflow-hidden" style="background-image: url('/images/test1.png');">
+
     <nav class="pt-8 px-5 z-10 w-full">
       <ul class="flex justify-center space-x-4 lg:space-x-6">
         <li><a href="/api/login/discord" class="text-white hover:text-purple-300 transition duration-300 ease-in-out font-bold">Login</a></li>
@@ -29,47 +30,117 @@
                 </div>
             </div>
         </li>
-        
-        
     </nav>
 
-    <div class="flex flex-col items-start justify-center h-full w-full" style="padding-left: 5%;">
-        <div class="text-left z-10">
-          <h1 class="text-5xl text-white font-bold mb-4 animate-pulse">Unbot</h1>
-          <p class="text-2xl text-gray-300 mb-8 animate-fade-in-down">Unibox Discord Bot(OS)</p>
-          <a href="#" class="bg-purple-600 hover:bg-purple-800 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out animate-bounce">Join the Adventure</a>
-        </div>
+<div class="mt-4 flex justify-center mt-8">
+    <div class="flex items-center py-2 px-4 bg-purple-600 text-white font-bold rounded-full">
+        <img src="/icons/hero/planet.svg" alt="Rocket" class="h-6 w-6">
+        <span id="badgeText">Open Source</span>
     </div>
+</div>
+    
 
-    <div class="absolute right-5 top-1/2 transform -translate-y-1/2 z-10">
-        <div class="flex flex-col items-center space-y-4 bg-purple-600 p-4 rounded-lg">
-            <a href="https://facebook.com" class="transition duration-300 ease-in-out transform hover:scale-110">
-                <img src="/icons/mobliemenu/github.svg" alt="GitHub" class="h-6 w-6">
-            </a>
-            <a href="https://twitter.com" class="transition duration-300 ease-in-out transform hover:scale-110">
-                <img src="/icons/mobliemenu/discord.svg" alt="Discord" class="h-6 w-6">
-            </a>
-            <a href="https://instagram.com" class="transition duration-300 ease-in-out transform hover:scale-110">
-                <img src="/icons/mobliemenu/x.svg" alt="X" class="h-6 w-6">
-            </a>
+    <div class="flex justify-center items-center h-full w-full mb-8">
+        <div class="flex flex-col items-center justify-center text-center">
+            <h1 class="text-5xl text-white font-bold mb-4 animate-pulse">Unbot</h1>
+            <p class="text-2xl text-gray-300 mb-8 ">UnInbox Discord Bot - Open Source</p>
+            <a href="#" class="bg-purple-600 hover:bg-purple-800 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out ">Join the Adventure</a>
+            <!-- Social Media Icons: Now below the Unbot section, displayed horizontally -->
+            <div class="flex flex-row items-center space-x-4 bg-purple-600 p-4 rounded-lg mt-8">
+                <a href="https://facebook.com" class="transition duration-300 ease-in-out transform hover:scale-110">
+                    <img src="/icons/mobliemenu/github.svg" alt="GitHub" class="h-6 w-6">
+                </a>
+                <a href="https://twitter.com" class="transition duration-300 ease-in-out transform hover:scale-110">
+                    <img src="/icons/mobliemenu/discord.svg" alt="Discord" class="h-6 w-6">
+                </a>
+                <a href="https://instagram.com" class="transition duration-300 ease-in-out transform hover:scale-110">
+                    <img src="/icons/mobliemenu/x.svg" alt="X" class="h-6 w-6">
+                </a>
+            </div>
+            <!-- Feature -->
+            <div class="flex flex-col items-center justify-center text-center mt-8">
+                <div id="features-slider" class="features-slider grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="flex flex-col items-center feature-slide">
+                        <img src="/icons/hero/karma.svg" alt="Karma System" class="h-12 w-12">
+                        <h3 class="text-xl text-white mt-2">Karma System</h3>
+                        <p class="text-sm text-gray-300">Reward engagement with a karma system. Dashboard coming soon!</p>
+                    </div>
+                    <div class="flex flex-col items-center feature-slide">
+                        <img src="/icons/hero/mod.svg" alt="Moderation Tools" class="h-12 w-12">
+                        <h3 class="text-xl text-white mt-2">AI Moderation</h3>
+                        <p class="text-sm text-gray-300">Upgrade moderation with AI, keeping servers safe and clean.</p>
+                    </div>
+                    <div class="flex flex-col items-center feature-slide">
+                        <img src="/icons/hero/chatbot.svg" alt="Chatbot" class="h-12 w-12">
+                        <h3 class="text-xl text-white mt-2">Personalized Chatbot</h3>
+                        <p class="text-sm text-gray-300">Engage with a custom chatbot. Easy setup with a YAML file.</p>
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </div>
+    
 </section>
+
+<style>@media (max-width: 640px) {
+    .features-slider {
+      overflow: hidden;
+      display: flex;
+      flex-wrap: nowrap;
+    }
+    .feature-slide {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+    }
+  }
+  
+  </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+  let slideIndex = 0; 
+  const numSlides = $(".feature-slide").length; 
+  const slideChangeInterval = 3000;
+  let slideInterval;
+
+  function moveToNextSlide() {
+    slideIndex = (slideIndex + 1) % numSlides; 
+    const slideWidth = $("#features-slider").width(); 
+    const newScrollPosition = slideWidth * slideIndex; 
+
+    $("#features-slider").animate({
+      scrollLeft: newScrollPosition
+    }, 800, 'swing'); 
+  }
+
+  function startSlideshow() {
+    slideInterval = setInterval(moveToNextSlide, slideChangeInterval);
+  }
+
+  function pauseSlideshow() {
+    clearInterval(slideInterval);
+  }
+
+  $("#features-slider").hover(pauseSlideshow, startSlideshow);
+
+  if ($(window).width() < 640) {
+    startSlideshow(); 
+  }
+
+});
+</script>
 
 
 <script>
-$(document).ready(function(){
-  $("#dropdownMore").click(function(event){
-    event.preventDefault(); 
-    $("#dropdownContent").toggle(); 
-  });
-
-  $(document).on('click', function(event) {
-    if (!$(event.target).closest('#dropdownMore, #dropdownContent').length) {
-      $("#dropdownContent").hide();
-    }
-  });
-});
-
-
+    $(document).ready(function(){
+        var texts = ["Open Source", "Driven by OpenAI", "Accelerated by Bun"];
+        var count = 0;
+        setInterval(function() {
+            $("#badgeText").text(texts[count]);
+            count++;
+            if (count >= texts.length) count = 0;
+        }, 3000); // Change text every 3 seconds
+    });
     </script>
+    

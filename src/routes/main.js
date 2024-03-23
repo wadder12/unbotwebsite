@@ -2,7 +2,8 @@ import { Router } from 'express';
 const main = Router();
 
 main.get('/', (req, res) => {
-  res.render('index', { title: 'Home Page' });
+  res.render('index', { 
+    title: 'Home Page' });
 });
 
 // route dashy
